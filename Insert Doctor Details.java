@@ -18,20 +18,20 @@ public class Doctor_Insert extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String name = request.getParameter("fname")
+		String name = request.getParameter("fname");
 		String gender = request.getParameter("gender");
 		String email = request.getParameter("iemail");
 		String phone = request.getParameter("mobile");
-		string hospital = request.getParameter("hospital");
+		String hospital = request.getParameter("hospital");
 		String specialty = request.getParameter("specialty");
 		
-		boolean isdoctor
+		boolean isdoctor;
 		
 		isdoctor = DoctorDBUtil.InsertDoctor(name, gender, email, phone, hospital, specialty);
 		
-		if(isdoctor == true) 
+		if(isdoctor == true) { 
 			RequestDispatcher rd = request.getRequestDispatcher("success.jsp");
-			rd.forward(request, response)
+			rd.forward(request, response);
 		}
 		else {
 			RequestDispatcher rd2 = request.getRequestDispatcher("unsuccess.jsp")
